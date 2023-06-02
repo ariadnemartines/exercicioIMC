@@ -1,0 +1,25 @@
+body{
+	background-color: #FFC9B3;	
+	text-align: center;
+}
+
+h2{
+	background-color: #FF584F;
+	color: white;
+	font-family: Comic sans ms;
+	font-weight: bold;
+	text-align: center;
+}
+
+p{
+	font-weight: bold;
+}
+
+.rectangle {
+	width: 540px;
+	height: 340px;
+	background-color: white;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+   }
