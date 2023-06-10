@@ -5,6 +5,37 @@
 	<meta charset="utf-8">
 	<title>IMC - Índice de Massa Corporal</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script>
+		function funcaoCalcularImc() {
+			var imc = 0;
+
+			var peso = document.getElementById("peso").value;
+
+			var altura = document.getElementById("altura").value;
+
+			imc = peso / (altura * altura);
+			imc = imc.toFixed(2);
+
+			if (imc < 18.5) {
+				document.getElementById("calcular").innerHTML = "Magreza: " + imc;				
+			}
+			else if (imc >= 18.5 && imc < 24.9) {
+				document.getElementById("calcular").innerHTML = "Normal: " + imc;	
+			}
+			else if (imc >= 24.9 && imc <= 30 ) {
+				document.getElementById("calcular").innerHTML = "Sobrepeso: " + imc;
+			}
+			else {
+				document.getElementById("calcular").innerHTML = "Obesidade: " + imc;
+			}			
+		}
+
+		function funcaoLimpar() {
+			document.getElementById("form").reset();
+			document.getElementById("calcular").innerHTML = "";
+		}
+		</script>
 </head>
 
 <body>
@@ -18,8 +49,24 @@
 <br>
 
 	<div class="rectangle">
-		<h3>Calcule aqui o seu IMC</h3>
+		<h3>Calcule aqui o seu IMC:</h3>
+		<form id="form">
+			<label for="peso">Digite seu peso (Kg):</label><br>
+			<input type="number" min="0" id="peso" name="peso"><br>
+			<br>
+			<br>
+			<label for="altura">Digite sua altura (m):</label><br>
+			<input type="number" min="0" id="altura" name="altura">
+			<br>
+			<br>
+			<input type="button" value="Calcular" onclick="funcaoCalcularImc()">
+			<input type="button" value="Limpar" onclick="funcaoLimpar()">
+			<br>
+			<br>
+			<label id="calcular"> </label>
+		</form>
 	</div>
+	
 
 </body> 
 
